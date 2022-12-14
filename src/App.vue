@@ -1,26 +1,49 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <HeadingModal /> -->
+  <router-view />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HeadingModal from "./components/HeadingModal.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    // HeadingModal,
+  },
+};
 </script>
 
 <style>
+body {
+  margin: 0px;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(325deg, rebeccapurple, yellow);
+  background-attachment: fixed;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: 'Nunito', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+.heading-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.body-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 </style>
