@@ -3,18 +3,36 @@
     <div class="create-task dash">
       <h1>Criar nova tarefa</h1>
       <div class="create-task input-form">
-        <input class="input-task" type="text" placeholder="Nome da task" />
-        <input class="input-task" type="text" placeholder="Descrição" />
-        <input class="input-task" type="text" placeholder="data"/>
+        <input class="input-task" type="text" placeholder="Nome da task" v-model="task_name"/>
+        <!-- <input class="input-task" type="text" placeholder="Descrição" /> -->
+        <!-- <input class="input-task" type="text" placeholder="data"/> -->
       </div>
-      <button class="create-task-buttom">Criar</button>
+      <button class="create-task-buttom" @click="createTask">Criar</button>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "CreateTaskModal",
+  data(){
+    return {
+      user_id: localStorage.getItem('user-info'),
+      task_name: ''
+
+    }
+  },
+  methods:{
+    async createTask(){
+      let result = await axios.post("http://localhost:3000/tasks", {
+        users_id: this.user_id,
+        name: this.task_name
+
+      });
+      console.log(result)
+    }
+  }
 };
 </script>
 

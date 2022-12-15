@@ -53,7 +53,7 @@ export default {
         console.warn(result);
         if (result.status == 202) {
           alert("bem vindo!");
-          localStorage.setItem("user-info", JSON.stringify(result.data));
+          localStorage.setItem("user-info", JSON.stringify(result.data.id));
           this.$router.push({ name: "HomePage" });
         } else {
           alert("Usuário inexistente");
